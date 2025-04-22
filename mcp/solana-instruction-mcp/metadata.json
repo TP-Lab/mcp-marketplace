@@ -1,0 +1,20 @@
+{
+    "name": "solana-instruction-mcp",
+    "description": "A natural language interface for building Solana transactions. Making blockchain interactions intuitive and accessible.",
+    "tags": [
+        "Transaction",
+        "SOL"
+    ],
+    "author": "TokenPocket",
+    "imageUrl": "https://mcp.tp.xyz/solana-logo.webp",
+    "install": {
+        "mcpServers": {
+            "wallet-mcp": {
+                "command": "npx",
+                "args": [
+                    "solana-instruction-mcp"
+                ]
+            }
+        }
+    }
+}

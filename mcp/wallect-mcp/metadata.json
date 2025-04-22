@@ -1,0 +1,20 @@
+{
+    "name": "wallet-mcp",
+    "description": "A powerful wallet integration tool that enables seamless blockchain interactions through natural language commands. Built for both beginners and power users, it supports multiple networks including Solana and EVM chains.",
+    "tags": [
+        "Wallet",
+        "Blockchain"
+    ],
+    "author": "TokenPocket",
+    "imageUrl": "https://mcp.tp.xyz/tp-logo.svg",
+    "install": {
+        "mcpServers": {
+            "wallet-mcp": {
+                "command": "npx",
+                "args": [
+                    "wallet-mcp"
+                ]
+            }
+        }
+    }
+}
