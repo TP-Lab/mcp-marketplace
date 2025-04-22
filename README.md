@@ -50,7 +50,7 @@ The Wallet MCP allows you to interact with blockchain technology directly throug
 
 Join our Wallet MCP Community on Telegram to connect with other users, get support, and stay updated on the latest developments:
 
-[Join Telegram Group](https://t.me/+giRkNJNU9IEzMTNl)
+[Join Telegram Group](https://t.me/walletmcp)
 
 ## Contributing
 
