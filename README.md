@@ -1,10 +1,10 @@
 # MCP Marketplace
 
-Welcome to the MCP Marketplace, where you can discover and utilize various MCP (Multimodal Capability Provider) components for Claude, allowing you to interact with blockchain technology seamlessly.
+Welcome to the MCP Marketplace, where you can discover and utilize various MCP (Model Context Protocol) server for Claude, allowing you to interact with blockchain technology seamlessly.
 
 ## 🚧 Under Construction 🚧
 
-We are continuously building and improving the MCP Marketplace. All MCPs listed here will be displayed in the marketplace interface. Stay tuned for updates as we add more features and capabilities!
+We are continuously building and improving the MCP Marketplace. All MCP server listed here will be displayed in the marketplace interface. Stay tuned for updates as we add more features and capabilities!
 
 ## Currently Available MCPs
 
@@ -54,7 +54,7 @@ Join our Wallet MCP Community on Telegram to connect with other users, get suppo
 
 ## Contributing
 
-If you're interested in contributing to the MCP Marketplace or have ideas for new MCPs, please reach out to us.
+If you're interested in contributing to the MCP Marketplace or have ideas for new MCP server, please reach out to us.
 
 ## Learn More
 
