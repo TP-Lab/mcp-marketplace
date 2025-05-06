@@ -36,7 +36,7 @@ for (const chain of [CHAIN_LIST[1], CHAIN_LIST[3], CHAIN_LIST[5]]) {
     },
   );
 
-  test.skip(
+  test(
     `test get balance on ${chain.name}`,
     { timeout: 1000 * 60 * 60 },
     async () => {
@@ -48,7 +48,7 @@ for (const chain of [CHAIN_LIST[1], CHAIN_LIST[3], CHAIN_LIST[5]]) {
     },
   );
 
-  test.skip(
+  test(
     `test sign message on ${chain.name}`,
     { timeout: 1000 * 60 * 60 },
     async () => {

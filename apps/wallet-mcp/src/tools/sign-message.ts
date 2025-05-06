@@ -1,11 +1,6 @@
 import { CHAIN_LIST } from "@mcp-marketplace/constanst/src/chain";
-import {
-  TPMCPWalletSvmAdapter,
-  TPMCPWalletTvmAdapter,
-  createTpMCPEvmWalletClient,
-} from "tp-mcp-wallet";
-import type { Chain } from "viem";
 import { z } from "zod";
+import { getWallet } from "../lib/wallet";
 
 export const name = "sign-message";
 export const description = "Sign a message";
@@ -26,53 +21,18 @@ export const handle = async (param: z.infer<typeof paramZodSchema>) => {
     throw new Error("chain not found");
   }
 
-  if (chain.network === "evm") {
-    const client = createTpMCPEvmWalletClient({
-      chain: chain as unknown as Chain,
-    });
+  const wallet = getWallet(chain);
+  const signedMsg = await wallet.signMessage({
+    message,
+    account,
+  });
 
-    const tx = await client.signMessage({
-      message: message,
-      account: account as `0x${string}`,
-    });
-
-    return {
-      content: [
-        {
-          type: "text",
-          text: tx,
-        },
-      ],
-    };
-  }
-
-  if (chain.network === "svm") {
-    const client = new TPMCPWalletSvmAdapter(chain.id as string);
-    const signedMsg = await client.signMessage(
-      new Uint8Array(Buffer.from(message, "utf-8")),
-    );
-
-    return {
-      content: [
-        {
-          type: "text",
-          text: Buffer.from(signedMsg).toString("hex"),
-        },
-      ],
-    };
-  }
-
-  if (chain.network === "tvm") {
-    const tvmClient = new TPMCPWalletTvmAdapter(chain.id as unknown as string);
-    const signedMsg = await tvmClient.signMessage(message);
-
-    return {
-      content: [
-        {
-          type: "text",
-          text: signedMsg,
-        },
-      ],
-    };
-  }
+  return {
+    content: [
+      {
+        type: "text",
+        text: signedMsg,
+      },
+    ],
+  };
 };

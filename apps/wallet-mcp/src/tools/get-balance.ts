@@ -1,9 +1,7 @@
 import { CHAIN_LIST } from "@mcp-marketplace/constanst/src/chain";
-import { createPublicClient, http, type Chain } from "viem";
-import { z } from "zod";
-import { Connection, PublicKey } from "@solana/web3.js";
-import { TronWeb } from "tronweb";
 import { Decimal } from "decimal.js";
+import { z } from "zod";
+import { getWallet } from "../lib/wallet";
 
 export const name = "get-balance";
 export const description = "Get balance of the address on specific chain";
@@ -22,28 +20,8 @@ export const handle = async (param: z.infer<typeof paramZodSchema>) => {
     throw new Error("chain not found");
   }
 
-  let balance = "0";
-  if (chain.network === "evm") {
-    const publicClient = createPublicClient({
-      chain: chain as Chain,
-      transport: http(chain.rpc_url),
-    });
-
-    const data = await publicClient.getBalance({
-      address: address as `0x${string}`,
-    });
-    balance = data.toString();
-  } else if (chain.network === "svm") {
-    const connection = new Connection(chain.rpc_url);
-    const data = await connection.getBalance(new PublicKey(address));
-    balance = data.toString();
-  } else if (chain.network === "tvm") {
-    const tronWeb = new TronWeb({
-      fullHost: chain.rpc_url,
-    });
-    const data = await tronWeb.trx.getBalance(address);
-    balance = data.toString();
-  }
+  const wallet = getWallet(chain);
+  const balance = await wallet.getBalance(address);
 
   return {
     content: [

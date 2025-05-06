@@ -13,7 +13,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup    "
+    "build": "tsup"
   },
   "keywords": [],
   "author": "",
