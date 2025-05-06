@@ -1,0 +1,52 @@
+name: Publish wallet-mcp
+on:
+  push:
+    tags:
+      - "wallet-mcp@*"
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.0.0
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Extract version from tag
+        if: startsWith(github.ref, 'refs/tags/')
+        id: extract_version
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          VERSION=${TAG_NAME#wallet-mcp@}
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update version in package.json
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          cd apps/wallet-mcp
+          npm version ${{ steps.extract_version.outputs.VERSION }} --no-git-tag-version
+
+      - name: Build package
+        run: pnpm turbo run build --filter=wallet-mcp
+
+      - name: Remove workspace dependencies
+        run: |
+          pnpm tsx ./script/clear-package-file.ts apps/wallet-mcp/package.json
+
+      - name: Publish to npm
+        run: cd apps/wallet-mcp && pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
