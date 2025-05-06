@@ -76,8 +76,8 @@ importers:
         specifier: 10.1.0
         version: 10.1.0
       tp-mcp-wallet:
-        specifier: 0.0.3
-        version: 0.0.3(@trpc/server@11.1.2(typescript@5.8.2))(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)
+        specifier: 0.0.4
+        version: 0.0.4(@trpc/server@11.1.2(typescript@5.8.2))(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)
       tronweb:
         specifier: 6.0.3
         version: 6.0.3(bufferutil@4.0.9)(utf-8-validate@5.0.10)
@@ -1840,8 +1840,8 @@ packages:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
     engines: {node: '>=0.6'}
 
-  tp-mcp-wallet@0.0.3:
-    resolution: {integrity: sha512-hui5FzmHG89bAZgmHKKm72dRQE4VnWcjCuftlEDMO8PX+V+pG6c5Guyz7Qq7cFeeSwKZgpBamUfd+t0bjEitVw==}
+  tp-mcp-wallet@0.0.4:
+    resolution: {integrity: sha512-Zjbfua0tnRcGGJIG5hAmyPHbWtH1SXoeygnvZJmhcXT5yoUA7vGnHqEUf6QSHAE4fK+aGMjNQCgr15ZEi08GEQ==}
 
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
@@ -4423,7 +4423,7 @@ snapshots:
 
   toidentifier@1.0.1: {}
 
-  tp-mcp-wallet@0.0.3(@trpc/server@11.1.2(typescript@5.8.2))(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10):
+  tp-mcp-wallet@0.0.4(@trpc/server@11.1.2(typescript@5.8.2))(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10):
     dependencies:
       '@solana/wallet-adapter-base': 0.9.26(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10))
       '@solana/web3.js': 1.98.2(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)
