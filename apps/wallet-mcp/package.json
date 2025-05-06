@@ -1,7 +1,7 @@
 {
   "name": "wallet-mcp",
   "version": "1.0.1",
-  "description": "WalletMCP Server",
+  "description": "Wallet MCP Server",
   "main": "./dist/index.js",
   "type": "module",
   "bin": {

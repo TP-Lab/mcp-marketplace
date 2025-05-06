@@ -13,6 +13,7 @@ export class SvmWallet implements Wallet {
     this.chain = chain;
     this.client = new TPMCPWalletSvmAdapter(chain.id as string);
   }
+
   async transferNativeToken(params: {
     account: string;
     to: string;
@@ -24,20 +25,15 @@ export class SvmWallet implements Wallet {
       to: to,
       amount: new Decimal(amount).mul(10 ** 9).toString(),
     });
-
     const connection = new Connection(this.chain.rpc_url);
-
     const blockhash = await connection.getLatestBlockhash();
-
     const transaction = await buildTransaction({
       instructions: [...instruction],
       addressLookupTableAddresses: [],
       blockhash: blockhash.blockhash,
       feePayer: new PublicKey(account),
     });
-
     const signedTransaction = await this.client.signTransaction(transaction);
-
     const signature = await connection.sendRawTransaction(
       signedTransaction.serialize(),
       {
@@ -45,9 +41,9 @@ export class SvmWallet implements Wallet {
         preflightCommitment: "confirmed",
       },
     );
-
     return signature;
   }
+
   async getBalance(address: string) {
     const connection = new Connection(this.chain.rpc_url);
     const data = await connection.getBalance(new PublicKey(address));
@@ -66,14 +62,11 @@ export class SvmWallet implements Wallet {
 
   async sendTransaction(params: { transaction_hex: string }) {
     const { transaction_hex } = params;
-
     const transaction = VersionedTransaction.deserialize(
       Buffer.from(transaction_hex, "hex"),
     );
-
     const connection = new Connection(this.chain.rpc_url);
     const signedTransaction = await this.client.signTransaction(transaction);
-
     const signature = await connection.sendRawTransaction(
       signedTransaction.serialize(),
       {
@@ -81,7 +74,6 @@ export class SvmWallet implements Wallet {
         preflightCommitment: "confirmed",
       },
     );
-
     return signature;
   }
 

@@ -16,10 +16,8 @@ const connectWalletSchema = z.object(paramSchema);
 
 export const handle = async (param: z.infer<typeof connectWalletSchema>) => {
   const { chain_id } = param;
-
   try {
     const chain = CHAIN_LIST.find((c) => `${c.id}` === `${chain_id}`);
-
     if (!chain) {
       return {
         content: [
@@ -30,11 +28,8 @@ export const handle = async (param: z.infer<typeof connectWalletSchema>) => {
         ],
       };
     }
-
     const wallet = getWallet(chain);
-
     const addresses = await wallet.connect();
-
     return {
       content: [
         {

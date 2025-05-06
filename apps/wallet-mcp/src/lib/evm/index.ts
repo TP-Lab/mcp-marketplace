@@ -13,15 +13,14 @@ export class EvmWallet implements Wallet {
       chain: chain as unknown as EvmChain,
     });
   }
+  
   async transferNativeToken(params: {
     account: string;
     to: string;
     amount: string;
   }) {
     const { account, to, amount } = params;
-
     const amountWei = parseEther(amount.toString());
-
     const tx = await this.client.sendTransaction({
       chain: this.chain as EvmChain,
       account: account as `0x${string}`,
@@ -30,7 +29,6 @@ export class EvmWallet implements Wallet {
     });
 
     return tx;
-
   }
 
   async connect() {
@@ -43,7 +41,6 @@ export class EvmWallet implements Wallet {
       chain: this.chain as EvmChain,
       transport: http(this.chain.rpc_url),
     });
-
     const data = await publicClient.getBalance({
       address: address as `0x${string}`,
     });
@@ -62,16 +59,13 @@ export class EvmWallet implements Wallet {
     transaction_hex: string;
   }) {
     const { transaction_hex } = params;
-
     const transaction = JSON.parse(
       Buffer.from(transaction_hex, "hex").toString("utf-8"),
     );
-
     const tx = await this.client.sendTransaction({
       ...transaction,
       value: parseEther(transaction.value),
     });
-
     return tx;
   }
 }

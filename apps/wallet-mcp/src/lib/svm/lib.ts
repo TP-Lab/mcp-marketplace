@@ -35,6 +35,5 @@ export function buildTransaction(param: {
     recentBlockhash: param.blockhash,
     instructions: param.instructions,
   }).compileToV0Message(param.addressLookupTableAddresses);
-
   return new VersionedTransaction(transaction);
 }

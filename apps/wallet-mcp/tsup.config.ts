@@ -10,7 +10,7 @@ export default defineConfig({
   splitting: false,
   shims: true,
   dts: false,
-  noExternal: ["@mcp-marketplace/constanst", "tp-mcp-wallet"],
+  noExternal: ["@mcp-marketplace/constanst"],
   banner: {
     js: "#!/usr/bin/env node",
   },

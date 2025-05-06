@@ -1,9 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-
 import { tools } from "./tools";
 
-// Create server instance
 const server = new McpServer({
   name: "wallet-mcp",
   version: "1.0.0",
