@@ -16,6 +16,10 @@ The Wallet MCP allows you to interact with blockchain technology directly throug
 
 - **Wallet Connection**: Securely connect your crypto wallet, supporting both Solana and EVM networks.
 - **Sign Transactions**: Easily sign and send transactions with Claude guiding you through each step.
+- **Multi-Chain Support**: Seamlessly interact with multiple blockchain networks through a single interface.
+- **Native Token Transfers**: Send and receive native tokens (like SOL, ETH，EVM) directly through Claude.
+- **Balance Queries**: Check your wallet balances across different networks and tokens.
+
 
 #### Example Commands
 - Sign Transactions: "Please send 0.1 SOL to xxx..."

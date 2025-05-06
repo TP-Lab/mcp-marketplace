@@ -1,0 +1,14 @@
+{
+  "name": "@mcp-marketplace/constanst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "type": "module",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@reown/appkit": "^1.7.2"
+  }
+}

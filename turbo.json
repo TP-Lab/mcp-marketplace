@@ -1,4 +1,30 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "tasks": {}
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "build:mcp": {
+      "dependsOn": [
+        "solana-instruction-mcp#build",
+        "wallet-mcp#build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    }
+  }
 }
