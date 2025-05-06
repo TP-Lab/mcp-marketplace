@@ -67,7 +67,7 @@ importers:
         specifier: 1.98.2
         version: 1.98.2(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)
       decimal.js:
-        specifier: ^10.5.0
+        specifier: 10.5.0
         version: 10.5.0
       dotenv:
         specifier: 16.5.0
@@ -79,7 +79,7 @@ importers:
         specifier: 0.0.3
         version: 0.0.3(@trpc/server@11.1.2(typescript@5.8.2))(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)
       tronweb:
-        specifier: ^6.0.3
+        specifier: 6.0.3
         version: 6.0.3(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       uuid:
         specifier: 11.1.0
